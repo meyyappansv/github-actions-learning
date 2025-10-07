@@ -1,4 +1,5 @@
 name: hello-world-workflow
+on: push
 jobs:
   hello-world-job:
     runs-on: ubuntu-latest
