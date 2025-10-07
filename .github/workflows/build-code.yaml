@@ -25,3 +25,33 @@ jobs:
           node-version: '20.x'
       - run: npm install
       - run: npm run test
+  
+  deploy-code:
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: production
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    needs: test-code
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: use node.js
+        uses: actions/setup-node@v4
+        with: 
+          node-version: '20.x'
+      - run: npm install
+      - run: npm run build
+      - name: configure github pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: text
+      - name: deploy site
+        id: deployment
+        uses: actions/deploy-pages@v4        
+        
+
