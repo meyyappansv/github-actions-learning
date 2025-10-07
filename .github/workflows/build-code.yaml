@@ -1,5 +1,7 @@
 name: build and deploy website
-on: push
+on:
+  #push
+  workflow_dispatch: #manaul
 jobs:
   build-code:
     runs-on: ubuntu-latest
