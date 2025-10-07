@@ -1,4 +1,4 @@
-name: hello-world-workflow
+name: hello-world-scheduled
 on:
   schedule:
     - cron: "* * * * *"

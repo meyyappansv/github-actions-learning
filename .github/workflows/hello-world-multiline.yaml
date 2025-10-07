@@ -1,4 +1,4 @@
-name: hello-world-workflow
+name: hello-world-multiline-manual
 on: 
   #push
   workflow_dispatch: #manual
